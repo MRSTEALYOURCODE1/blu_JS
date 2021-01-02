@@ -1,3 +1,9 @@
+document.write=function(s){
+    var scripts = document.getElementsByTagName('script');
+    var lastScript = scripts[scripts.length-1];
+    lastScript.insertAdjacentHTML("beforebegin", s);
+}
+
 function speak(message) {
     var speech = new SpeechSynthesisUtterance();
     speech.text = message;
@@ -19,7 +25,7 @@ function print(write){
     document.write(write)
 }
 
-//progress//////////////////
+/*
 function getId(id){
     document.getElementById(id);
 }
@@ -36,7 +42,7 @@ function getHTML(id){
 function getTxt(id){
     document.getElementById(id).innerText;
 }
-/////////////////////////////
+*/
 
 var today = new Date();
 var todhrs = today.getHours()
@@ -88,6 +94,28 @@ function input(value){
     document.write("<textarea class='input' style='resize: none; text-align: center; border-radius: 10px; background-color: rgb(173, 173, 173; width: 10%; height: 5%; ' id='input' placeholder='value'></textarea>")
     document.getElementById("input").placeholder = value;
     console.log('class for input() is "input"')
+    console.log("To get Id Do '$.getElementById('input').value'")
 }
 
+function random(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+function setStorage(name, value){
+    localStorage.setItem(name, value)
+}
+
+function getStorage(name){
+    localStorage.getItem(name)
+}
+
+let $ = document;
+
+function error(value){
+    document.write("<p id='error' class='error' style='font-family: arial; color: red; position: relative;'></p>")
+    document.getElementById("error").innerHTML = value;
+    console.error(value);
+}
+
+let get$ = document.documentElement.outerHTML;
 
